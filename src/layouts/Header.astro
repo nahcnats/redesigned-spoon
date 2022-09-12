@@ -9,10 +9,6 @@ const menus = [
         url: "/#work",
     },
     {
-        name: "ABOUT",
-        url: "/#about",
-    },
-    {
         name: "CONTACT",
         url: "/#contact",
     },
@@ -31,7 +27,7 @@ const {pathname} = Astro.url;
                 {
                     menus.map((item) => (
                         <li>
-                            <a href={item.url} class={`hover:text-amber-500 ${pathname === item.url && "text-white"}`}>{item.name}</a>
+                            <a href={item.url} class={`hover:text-amber-500`}>{item.name}</a>
                         </li>
                     ))
                 }

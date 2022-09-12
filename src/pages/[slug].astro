@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const works = await Astro.glob("../works/*.md");
+
+    return works.map((work) => ({
+        params: {
+            slug: work.frontmatter.slug,
+        },
+        props: {
+            work,
+        },
+    }));
+}
+
+const { Content, frontmatter} = Astro.props.work;
+---
+
+<Layout title={frontmatter.title}>
+    <section id="work">
+        <div class="container mx-auto px-4">
+            <div class="mb-8">
+                <a href="/"><button class="primary-button w-[100px]">Go Back</button></a>
+            </div>
+            <div class="mb-8">
+                <h2 class="text-2xl mb-4">{frontmatter.title}</h2>
+                <div class="w-full min-h-[400px] flex justify-center relative mb-6">
+                    <img src={frontmatter.image} style="object-fit: contain; height:100%; width:100%;" />
+                </div>
+                <ul class="leading-loose mb-4 text-sm">
+                    <li class="flex gap-2">
+                        <div>Company:</div>
+                        <div>{frontmatter.company}</div>
+                    </li>
+                    <li class="flex gap-2">
+                        <div>Type:</div>
+                        <div>{frontmatter.type}</div>
+                    </li>
+                    <li class="flex gap-2">
+                        <div>Duration:</div>
+                        <div>{frontmatter.duration}</div>
+                    </li>
+                    <li class="flex gap-2">
+                        <div>Stack:</div>
+                        <div>{frontmatter.stack}</div>
+                    </li>
+                </ul>
+                <Content />
+            </div>
+            <div class="mb-8">
+                <a href="/"><button class="primary-button w-[100px]">Go Back</button></a>
+            </div>
+        </div>
+    </section>
+</Layout>

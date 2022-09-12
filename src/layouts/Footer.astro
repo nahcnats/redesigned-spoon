@@ -1,23 +1,23 @@
 ---
 import ContactForm from "../components/ContactForm.jsx";
-import { AiOutlineMail, AiOutlineWhatsApp } from "react-icons/ai";
+import SectionTitle from "../components/SectionTitle.astro";
+import { AiOutlineMail, AiOutlineWhatsApp, AiFillGithub } from "react-icons/ai";
 ---
 
 <footer class="w-full flex justify-center items-center">
     <section id="contact" class="container w-full justify-center p-4">
-        <div class="flex items-center mb-4">
-            <div class="w-1 bg-amber-500 h-4 mr-2"></div><h1 class="text-xl">
-                Contact Me
-            </h1>
-        </div>
+        <SectionTitle title="Contact Me" />
         <div class="grid grid-cols-1 md:grid-cols-3">
             <div class="flex flex-col mb-6 md:mb-0">
                 <div class="mb-4">For further enquiries.</div>
-                <div class="flex flex-row gap-2 items-center mb-2">
+                <div class="flex flex-row gap-2 items-center mb-2 ml-2">
                     <AiOutlineMail size={16} />nahcnats@gmail.com
                 </div>
-                <div class="flex flex-row gap-2 items-center">
+                <div class="flex flex-row gap-2 items-center mb-2 ml-2">
                     <AiOutlineWhatsApp size={16} />+(60)12 395 7358
+                </div>
+                <div class="flex flex-row gap-2 items-center ml-2 ">
+                    <AiFillGithub size={16} /><a href="https://github.com/nahcnats" class="hover:underline">github.com/nahcnats</a>
                 </div>
             </div>
             <div class="flex flex-col items-center col-span-2">

@@ -1,27 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Footer from "../layouts/Footer.astro";
 import Work from "../components/Work.astro";
 import {AiOutlineCloudDownload} from 'react-icons/ai'
 ---
 
 <Layout>
     <div class="container mx-auto px-4">
-        <Work />
-
         <section id="about" class="mb-12">
-            <div>
-                <div class="flex items-center mb-4">
-                    <div class="w-1 bg-amber-500 h-4 mr-2"></div><h1
-                        class="text-xl"
-                    >
-                        About me
-                    </h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="flex justify-center">
+                    <div class="relative h-[300px] w-[300px] rounded">
+                        <img src="/images/18158421.jpeg" alt="" style="object-fit: cover; border-radius: 50%;" />
+                    </div>
                 </div>
-                <p>
-                    My name is Stanley Chan. I am a programmer from Malaysia with focus on ReactJS, React Native, NodeJS and ExpressJs. I am mostly self-taught and have been active since 2018.
-                </p>
-                <button class="bg-amber-500 p-2 rounded-lg mt-6 text-white flex gap-2"><AiOutlineCloudDownload size={24} /> Resume</button>
+                
+                <div class="flex flex-col justify-center col-span-2">
+                    <div>My name is Stanley Chan. I am a programmer from Malaysia with focus on ReactJS, React Native, NodeJS and ExpressJs. I am mostly self-taught and have been active since 2018.</div> 
+                    <button class="bg-amber-500 p-2 w-[120px] rounded-lg mt-6 text-white flex gap-2"><AiOutlineCloudDownload size={24} /> Resume</button>
+                </div>
+                
             </div>
         </section>
+        <Work />
     </div>
+    <Footer />
 </Layout>

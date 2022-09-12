@@ -12,7 +12,7 @@ body {
 }
 
 .primary-button {
-    @apply h-8 w-full rounded-lg bg-gray-400 text-white;
+    @apply h-8 rounded-lg bg-gray-400 text-white;
 }
 
 .card {

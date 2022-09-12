@@ -64,8 +64,8 @@ export default function ContactForm() {
                     )}
                 </div>
             </div>
-            <button type="submit" className="primary-button">
-                Submit
+            <button type="submit" className="primary-button w-full">
+                Reach Out
             </button>
         </form>
     );
