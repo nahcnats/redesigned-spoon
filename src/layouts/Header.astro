@@ -1,0 +1,41 @@
+---
+const menus = [
+    {
+        name: "HOME",
+        url: "/",
+    },
+    {
+        name: "WORK",
+        url: "/#work",
+    },
+    {
+        name: "ABOUT",
+        url: "/#about",
+    },
+    {
+        name: "CONTACT",
+        url: "/#contact",
+    },
+];
+
+const {pathname} = Astro.url;
+---
+
+<header class="top-0 sticky z-50 bg-gray-800 mb-12">
+    <div class="flex justify-between items-center p-5 h-20">
+        <div>
+            <span class="text-xl font-[600] tracking-wider">nahcnats</span>
+        </div>
+        <nav>
+            <ul class="flex gap-4 items-center">
+                {
+                    menus.map((item) => (
+                        <li>
+                            <a href={item.url} class={`hover:text-amber-500 ${pathname === item.url && "text-white"}`}>{item.name}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+    </div>
+</header>

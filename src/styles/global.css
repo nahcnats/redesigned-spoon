@@ -8,4 +8,13 @@ html,
 body {
     font-family: Poppins;
     scroll-behavior: smooth;
+    @apply bg-gray-800 text-gray-400;
+}
+
+.primary-button {
+    @apply h-8 w-full rounded-lg bg-gray-400 text-white;
+}
+
+.card {
+    @apply rounded border border-gray-400 p-2;
 }
