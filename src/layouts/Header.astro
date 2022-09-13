@@ -1,4 +1,6 @@
 ---
+import NavLinkWrapper from "../components/NavLinkWrapper.jsx";
+
 const menus = [
     {
         name: "HOME",
@@ -14,7 +16,7 @@ const menus = [
     },
 ];
 
-// const {pathname} = Astro.url;
+const astroPath = new URL(Astro.url).pathname;
 ---
 
 <header class="top-0 sticky z-50 bg-gray-800 mb-12">
@@ -24,13 +26,11 @@ const menus = [
         </div>
         <nav>
             <ul class="flex gap-4 items-center">
-                {
-                    menus.map((item) => (
-                        <li>
-                            <a href={item.url} class={`hover:text-amber-500`}>{item.name}</a>
-                        </li>
-                    ))
-                }
+                <NavLinkWrapper
+                    items={menus}
+                    astroPath={astroPath}
+                    client:load
+                />
             </ul>
         </nav>
     </div>

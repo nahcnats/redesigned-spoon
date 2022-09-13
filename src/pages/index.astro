@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../layouts/Footer.astro";
 import Work from "../components/Work.astro";
-import { Icon } from 'astro-icon';
+import { Icon } from "astro-icon";
 ---
 
 <Layout>
@@ -11,15 +11,28 @@ import { Icon } from 'astro-icon';
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div class="flex justify-center">
                     <div class="relative h-[300px] w-[300px] rounded">
-                        <img src="/images/18158421.jpeg" alt="" style="object-fit: cover; border-radius: 50%;" />
+                        <img
+                            src="/images/18158421.jpeg"
+                            alt=""
+                            style="object-fit: cover; border-radius: 50%;"
+                        />
                     </div>
                 </div>
-                
+
                 <div class="flex flex-col justify-center col-span-2">
-                    <div>My name is Stanley Chan. I am a programmer from Malaysia with focus on ReactJS, React Native, NodeJS and ExpressJs. I am mostly self-taught and have been active since 2018.</div> 
-                    <button class="bg-amber-500 p-2 w-[120px] rounded-lg mt-6 text-white flex gap-2"><Icon name="akar-icons:cloud-download" size={24} /> Resume</button>
+                    <div>
+                        My name is Stanley Chan. I am a programmer from Malaysia
+                        with focus on ReactJS, React Native, NodeJS and
+                        ExpressJs. I am mostly self-taught and have been active
+                        since 2018.
+                    </div>
+                    <a
+                        href="/pdf/kinbengchan_resume_20220708a.pdf"
+                        download
+                        class="bg-amber-500 p-2 w-[120px] rounded-lg mt-6 text-white flex gap-2 hover:text-gray-300"
+                        ><Icon name="akar-icons:cloud-download" size={24} /> Resume</a
+                    >
                 </div>
-                
             </div>
         </section>
         <Work />
