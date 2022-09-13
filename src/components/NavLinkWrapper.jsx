@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function NavLinkWrapper({ items, astroPath }) {
     const [activeUrl, setActiveUrl] = useState(astroPath);
@@ -20,11 +21,15 @@ export default function NavLinkWrapper({ items, astroPath }) {
                     <a
                         href={item.url}
                         className={`hover:text-amber-500 ${
-                            activeUrl === item.url && "text-white"
+                            activeUrl === item.url && "text-amber-500"
                         }`}
                         onClick={() => changeLinkHandler(item.url)}
                     >
-                        {item.name}
+                        <FontAwesomeIcon
+                            icon={item.icon}
+                            className="md:hidden"
+                        />
+                        <span className="hidden md:block">{item.name}</span>
                     </a>
                 </li>
             ))}
