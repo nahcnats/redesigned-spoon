@@ -44,7 +44,7 @@ export default function ContactForm() {
         };
 
         try {
-            const response = await axios({
+            await axios({
                 method: "post",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
@@ -53,11 +53,9 @@ export default function ContactForm() {
                 data: encode({ "form-name": "contact v1", ...payload }),
             });
 
-            if (response) {
-                window.location.href("/success");
-            }
+            window.location.href = "/success";
         } catch (error) {
-            window.Location.href("/error");
+            window.Location.href = "/error";
         }
     }
 
@@ -66,7 +64,7 @@ export default function ContactForm() {
             className="w-full"
             name="contact v1"
             method="post"
-            netlify
+            netlify={true}
             netlify-honeypot="bot-field"
             onSubmit={handleSubmit(submitContactHandler)}
         >
@@ -125,7 +123,7 @@ export default function ContactForm() {
                     )}
                 </div>
             </div>
-            <button type="submit" className="primary-button w-full">
+            <button type="submit" className="secondary-button w-full">
                 Reach Out
             </button>
         </form>

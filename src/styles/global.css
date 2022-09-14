@@ -15,6 +15,10 @@ body {
     @apply h-8 rounded-lg bg-gray-400 text-white hover:text-amber-400;
 }
 
+.secondary-button {
+    @apply h-8 rounded-lg bg-amber-500 text-white hover:text-gray-400;
+}
+
 .card {
     @apply rounded border border-gray-400 p-2;
 }
