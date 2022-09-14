@@ -30,19 +30,13 @@ export default function ContactForm() {
             message,
         };
 
-        try {
-            const response = await axios({
-                method: "post",
-                url: "/",
-                data: encode({ "form-name": "contact v1", ...payload }),
-            });
-
-            if (response) {
-                alert("Success!");
-            }
-        } catch (err) {
-            console.log(err);
-        }
+        axios({
+            method: "post",
+            url: "/",
+            data: encode({ "form-name": "contact v1", payload }),
+        })
+            .then(() => alert("Success!"))
+            .catch((error) => alert(error));
     }
 
     return (
