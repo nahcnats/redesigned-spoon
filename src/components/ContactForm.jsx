@@ -79,6 +79,7 @@ export default function ContactForm() {
                         id="name"
                         name="name"
                         className="h-8 rounded p-2 text-black"
+                        placeholder="Please provide your name"
                     />
                     {errors.name && (
                         <FormFieldErrors message={errors.name.message} />
@@ -98,6 +99,7 @@ export default function ContactForm() {
                         id="email"
                         name="email"
                         className="h-8 rounded p-2 text-black"
+                        placeholder="Please provide your valid email"
                     />
                     {errors.email && (
                         <FormFieldErrors message={errors.email.message} />
@@ -114,13 +116,14 @@ export default function ContactForm() {
                         cols="30"
                         rows="5"
                         className="rounded p-2 text-black"
+                        placeholder="Tell me your desire"
                     />
                     {errors.message && (
                         <FormFieldErrors message={errors.message.message} />
                     )}
                 </div>
             </div>
-            <button type="submit" className="secondary-button w-full">
+            <button type="submit" className="primary-button w-full">
                 Reach Out
             </button>
         </form>

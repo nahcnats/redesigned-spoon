@@ -2,17 +2,24 @@
 import SectionTitle from "../components/SectionTitle.astro";
 
 const works = await Astro.glob("../works/*.md");
-const sortedWorks = works.sort((a,b) => (a.frontmatter.date > b.frontmatter.date) ? -1 : (b.frontmatter.date > a.frontmatter.date ? 1 : 0));
+const sortedWorks = works.sort((a, b) =>
+    a.frontmatter.date > b.frontmatter.date
+        ? -1
+        : b.frontmatter.date > a.frontmatter.date
+        ? 1
+        : 0
+);
 ---
+
 <section id="work" class="mb-12">
     <div>
         <SectionTitle title="My Work" />
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {
                 sortedWorks.map((work) => (
-                    <div class="card h-full w-full flex flex-col">
-                        <div class="relative w-full mb-4 flex flex-2 min-h-[220px] justify-center items-start">
-                            <img 
+                    <div class="card flex h-full w-full flex-col">
+                        <div class="flex-2 relative mb-4 flex min-h-[220px] w-full items-start justify-center">
+                            <img
                                 src={work.frontmatter.image}
                                 alt={work.frontmatter.title}
                                 style="object-fit: contain; "
@@ -20,7 +27,9 @@ const sortedWorks = works.sort((a,b) => (a.frontmatter.date > b.frontmatter.date
                         </div>
 
                         <div class="flex flex-1 flex-col justify-between">
-                            <h3 class="text-lg mb-2">{work.frontmatter.title}</h3>
+                            <h3 class="mb-2 text-lg">
+                                {work.frontmatter.title}
+                            </h3>
 
                             <ul class="text-sm leading-loose">
                                 <li class="flex gap-2">
@@ -41,7 +50,11 @@ const sortedWorks = works.sort((a,b) => (a.frontmatter.date > b.frontmatter.date
                                 </li>
                             </ul>
 
-                            <a href={`/${work.frontmatter.slug}`}><button class="primary-button w-full mt-4">Read More</button></a>
+                            <a href={`/${work.frontmatter.slug}`}>
+                                <button class="secondary-button mt-4 w-full">
+                                    Read More
+                                </button>
+                            </a>
                         </div>
                     </div>
                 ))
