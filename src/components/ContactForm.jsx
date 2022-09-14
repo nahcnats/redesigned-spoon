@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -5,8 +6,20 @@ export default function ContactForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        reset,
+        formState,
+        formState: { errors, isSubmitSuccessful },
     } = useForm();
+
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            reset({
+                name: null,
+                email: null,
+                message: null,
+            });
+        }
+    }, [formState, reset]);
 
     function FormFieldErrors({ message }) {
         return <div className="r mt-2 text-xs text-red-500">{message}</div>;
