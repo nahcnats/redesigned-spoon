@@ -64,7 +64,7 @@ export default function ContactForm() {
             className="w-full"
             name="contact v1"
             method="post"
-            netlify={true}
+            netlify
             netlify-honeypot="bot-field"
             onSubmit={handleSubmit(submitContactHandler)}
         >
