@@ -7,7 +7,6 @@ export default function ContactForm() {
         register,
         handleSubmit,
         reset,
-        formState,
         formState: { errors, isSubmitSuccessful },
     } = useForm();
 
@@ -19,7 +18,7 @@ export default function ContactForm() {
                 message: null,
             });
         }
-    }, [formState, reset]);
+    }, [isSubmitSuccessful, reset]);
 
     function FormFieldErrors({ message }) {
         return <div className="r mt-2 text-xs text-red-500">{message}</div>;
@@ -64,7 +63,7 @@ export default function ContactForm() {
             className="w-full"
             name="contact v1"
             method="post"
-            netlify
+            netlify="true"
             netlify-honeypot="bot-field"
             onSubmit={handleSubmit(submitContactHandler)}
         >
@@ -82,9 +81,7 @@ export default function ContactForm() {
                         className="h-8 rounded p-2 text-black"
                     />
                     {errors.name && (
-                        <FormFieldErrors
-                            message={errors.prospectName.message}
-                        />
+                        <FormFieldErrors message={errors.name.message} />
                     )}
                 </div>
                 <div className="mb-4 flex flex-col">
