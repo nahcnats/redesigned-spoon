@@ -51,7 +51,7 @@ export default function ContactForm() {
             });
 
             if (response) {
-                alert("Success!");
+                alert("Sweet, messege Sent!");
             }
         } catch (error) {
             alert(error);
@@ -64,6 +64,7 @@ export default function ContactForm() {
             name="contact v1"
             method="post"
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit(submitContactHandler)}
         >
             <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
@@ -76,6 +77,7 @@ export default function ContactForm() {
                         })}
                         type="text"
                         id="name"
+                        name="name"
                         className="h-8 rounded p-2 text-black"
                     />
                     {errors.name && (
@@ -96,6 +98,7 @@ export default function ContactForm() {
                         })}
                         type="email"
                         id="email"
+                        name="email"
                         className="h-8 rounded p-2 text-black"
                     />
                     {errors.email && (
@@ -109,6 +112,7 @@ export default function ContactForm() {
                             required: "Please enter your message",
                         })}
                         id="message"
+                        name="message"
                         cols="30"
                         rows="5"
                         className="rounded p-2 text-black"
