@@ -46,15 +46,18 @@ export default function ContactForm() {
         try {
             const response = await axios({
                 method: "post",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
                 url: "/",
                 data: encode({ "form-name": "contact v1", payload }),
             });
 
             if (response) {
-                alert("Sweet, messege Sent!");
+                window.location.href("/success");
             }
         } catch (error) {
-            alert(error);
+            window.Location.href("/error");
         }
     }
 
@@ -63,8 +66,8 @@ export default function ContactForm() {
             className="w-full"
             name="contact v1"
             method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
+            netlify
+            netlify-honeypot="bot-field"
             onSubmit={handleSubmit(submitContactHandler)}
         >
             <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
