@@ -30,13 +30,19 @@ export default function ContactForm() {
             message,
         };
 
-        axios({
-            method: "post",
-            url: "/",
-            data: encode({ "form-name": "contact v1", payload }),
-        })
-            .then(() => alert("Success!"))
-            .catch((error) => alert(error));
+        try {
+            const response = await axios({
+                method: "post",
+                url: "/",
+                data: encode({ "form-name": "contact v1", payload }),
+            });
+
+            if (response) {
+                alert("Success!");
+            }
+        } catch (error) {
+            alert(error);
+        }
     }
 
     return (
@@ -48,6 +54,7 @@ export default function ContactForm() {
             onSubmit={handleSubmit(submitContactHandler)}
         >
             <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                <input type="hidden" name="form-name" value="contact v1" />
                 <div className="mb-4 flex flex-col">
                     <label htmlFor="name">Name</label>
                     <input
