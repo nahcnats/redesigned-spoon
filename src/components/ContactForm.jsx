@@ -50,7 +50,7 @@ export default function ContactForm() {
                     "Content-Type": "application/x-www-form-urlencoded",
                 },
                 url: "/",
-                data: encode({ "form-name": "contact v1", payload }),
+                data: encode({ "form-name": "contact v1", ...payload }),
             });
 
             if (response) {
