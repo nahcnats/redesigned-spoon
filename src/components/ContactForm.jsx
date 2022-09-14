@@ -34,7 +34,7 @@ export default function ContactForm() {
             const response = await axios({
                 method: "post",
                 url: "/",
-                data: encode({ "form-name": "contact v1", payload }),
+                data: encode({ "form-name": "contact v1", ...payload }),
             });
 
             if (response) {
