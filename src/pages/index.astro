@@ -10,17 +10,11 @@ import { Icon } from "astro-icon";
         <section id="about" class="mb-24">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div class="flex justify-center">
-                    <div
-                        class="relative h-[300px] w-[300px] border-2 border-amber-400 rounded-full"
-                    >
-                        <Picture
-                            src="/images/20220925_235638.jpg"
-                            alt=""
-Height=100%
-Width=100%
-                            style="object-fit: cover; border-radius:50%"
-                        />
-                    </div>
+                    <img
+                        src="/images/18158421 _1.jpeg"
+                        alt="nahcnats"
+                        class="rounded"
+                    />
                 </div>
 
                 <div class="flex flex-col justify-center col-span-2">
@@ -39,12 +33,24 @@ Width=100%
                         href="/pdf/kinbengchan_resume_20220708a.pdf"
                         download
                         class="primary-button w-[120px] flex justify-center gap-2 p-2 items-center mt-6"
-                        ><Icon name="akar-icons:cloud-download" size={20} /> Resume</a
+                        ><Icon name="akar-icons:cloud-download" size={20} />
+                        Resume</a
                     >
                 </div>
             </div>
         </section>
-        <Work />
     </div>
+
+    <Work />
+
     <Footer />
 </Layout>
+
+<style>
+    img.rounded {
+        @apply border-2 border-amber-500;
+        border-radius: 50%;
+        height: auto;
+        width: 300px;
+    }
+</style>
