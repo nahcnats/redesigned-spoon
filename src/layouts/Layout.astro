@@ -8,26 +8,40 @@ export interface LayoutProps {
 
 const { title } = Astro.props as LayoutProps;
 const siteName = "nahcnats";
+const astroPath = new URL(Astro.url).pathname;
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css?family=Poppins|Roboto:300,400,500,700&display=swap"
-            rel="stylesheet"
-        />
-        <title>
-            {title ? `${title} - ${siteName}` : siteName}
-        </title>
-    </head>
-    <body class="flex flex-col justify-between h-screen w-screen">
-        <Header />
-        <slot />
-    </body>
-</html>
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css?family=Poppins|Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+/>
+<title>
+    {title ? `${title} - ${siteName}` : siteName}
+</title>
+
+<body class="flex flex-col justify-between h-full w-screen">
+    <Header />
+    <slot />
+    <!-- <script is:inline>
+        const li = document.querySelectorAll(".links");
+        const sec = document.querySelectorAll("section");
+
+        function activeMenu() {
+            let len = sec.length;
+
+            while (--len && window.scrollY + 97 < sec[len].offsetTop) {}
+            li.forEach((ltx) => {
+                ltx.classList.remove("active");
+            });
+            li[len].classList.add("active");
+        }
+        activeMenu();
+        window.addEventListener("scroll", activeMenu);
+    </script> -->
+</body>

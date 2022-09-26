@@ -28,3 +28,7 @@ textarea {
 .card {
     @apply rounded border border-gray-400 p-2 shadow-md shadow-gray-600;
 }
+
+.active {
+    @apply text-amber-500;
+}

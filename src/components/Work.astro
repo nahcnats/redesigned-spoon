@@ -11,54 +11,50 @@ const sortedWorks = works.sort((a, b) =>
 );
 ---
 
-<section id="work" class="flex container w-full justify-center mb-12">
-    <div>
-        <SectionTitle title="My Work" />
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {
-                sortedWorks.map((work) => (
-                    <div class="card flex h-full w-full flex-col">
-                        <div class="flex-2 relative mb-4 flex min-h-[220px] w-full items-start justify-center">
-                            <img
-                                src={work.frontmatter.image}
-                                alt={work.frontmatter.title}
-                                class="onject-contain"
-                            />
-                        </div>
-
-                        <div class="flex flex-1 flex-col justify-between">
-                            <h3 class="mb-2 text-lg">
-                                {work.frontmatter.title}
-                            </h3>
-
-                            <ul class="text-sm leading-loose">
-                                <li class="flex gap-2">
-                                    <div>Company:</div>
-                                    <div>{work.frontmatter.company}</div>
-                                </li>
-                                <li class="flex gap-2">
-                                    <div>Type:</div>
-                                    <div>{work.frontmatter.type}</div>
-                                </li>
-                                <li class="flex gap-2">
-                                    <div>Duration:</div>
-                                    <div>{work.frontmatter.duration}</div>
-                                </li>
-                                <li class="flex gap-2">
-                                    <div>Stack:</div>
-                                    <div>{work.frontmatter.stack}</div>
-                                </li>
-                            </ul>
-
-                            <a href={`/${work.frontmatter.slug}`}>
-                                <button class="secondary-button mt-4 w-full">
-                                    Read More
-                                </button>
-                            </a>
-                        </div>
+<section id="work" class="container w-full justify-center p-4 mb-12">
+    <SectionTitle title="My Work" />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {
+            sortedWorks.map((work) => (
+                <div class="card flex h-full w-full flex-col">
+                    <div class="flex-2 relative mb-4 flex min-h-[220px] w-full items-start justify-center">
+                        <img
+                            src={work.frontmatter.image}
+                            alt={work.frontmatter.title}
+                            class="onject-contain"
+                        />
                     </div>
-                ))
-            }
-        </div>
+
+                    <div class="flex flex-1 flex-col justify-between">
+                        <h3 class="mb-2 text-lg">{work.frontmatter.title}</h3>
+
+                        <ul class="text-sm leading-loose">
+                            <li class="flex gap-2">
+                                <div>Company:</div>
+                                <div>{work.frontmatter.company}</div>
+                            </li>
+                            <li class="flex gap-2">
+                                <div>Type:</div>
+                                <div>{work.frontmatter.type}</div>
+                            </li>
+                            <li class="flex gap-2">
+                                <div>Duration:</div>
+                                <div>{work.frontmatter.duration}</div>
+                            </li>
+                            <li class="flex gap-2">
+                                <div>Stack:</div>
+                                <div>{work.frontmatter.stack}</div>
+                            </li>
+                        </ul>
+
+                        <a href={`/${work.frontmatter.slug}`}>
+                            <button class="secondary-button mt-4 w-full">
+                                Read More
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            ))
+        }
     </div>
 </section>
